@@ -1,0 +1,20 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Login"></Label>
+</ActionBar>
+<ScrollView>
+    <StackLayout class="page p-t-15 bg_login">     
+        <Image  class="logo_menu marcadorCentral" width="60%" src="~/images/logo-min.png"></Image>
+
+        <Label class="m-t-10 m-b-10 m-l-15 m-r-15" fontWeight="bold" textAlignment="center" color="#ffffff"  text="INICIAR SESIÓN"></Label>
+
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15 input-log" hint="Email" keyboardType="email" autocorrect="false" autocapitalization="none"
+            [(ngModel)]="email"></TextField>
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15 input-log" hint="Contraseña" secure="true" autocorrect="false" autocapitalization="none"
+            [(ngModel)]="password"></TextField>
+
+        <Label class="m-t-10 m-b-10 m-l-15 m-r-15" (tap)="onNavItemTap('/recuperarContrasenia')" textAlignment="center" color="#ffffff"  text="¿Olvidaste tu Contraseña?"></Label>
+
+        <Button class="btn btn-primary" backgroundColor="#1188a6" borderColor="#1188a6" borderWidth="1" borderRadius="5" text="Ingresar" (tap)="onSigninButtonTap()"></Button>
+        <Button class="btn btn-primary" backgroundColor="transparent" borderColor="white" borderWidth="1" borderRadius="5" text="Registrarse" (tap)="onNavItemTap('/registro')"></Button>
+    </StackLayout>
+</ScrollView>

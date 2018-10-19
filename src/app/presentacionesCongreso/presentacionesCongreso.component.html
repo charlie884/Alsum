@@ -1,0 +1,18 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem> -->
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+    <ActionItem icon="res://ico_home" (tap)="onNavItemTap('/home')" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="page page-content">
+    <GridLayout row="0" width="100%" class="presentaciones_head"> 
+        <Label text="Presentaciones congreso" color="#ffffff" verticalAlignment="center" class="text-center"></Label>
+    </GridLayout>
+    <GridLayout row="1" rows="auto,auto" width="100%" class=""> 
+        <SegmentedBar row="0" [items]="myItems" selectedIndex="0" (selectedIndexChange)="onSelectedIndexChange($event)" class="m-5"></SegmentedBar>
+        <Label row="1" [text]="prop" textWrap="true" verticalAlign="center" class="h2 text-center"></Label>
+    </GridLayout>
+</GridLayout> 

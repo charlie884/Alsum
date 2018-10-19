@@ -1,0 +1,33 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+<GridLayout rows="auto,*" class="page page-content bg_home">
+
+    <Image row="0"  class="logo_menu marcadorCentral" src="~/images/logo_menu-min.png"></Image>
+
+    <GridView row="1" class="m-t-5" [items]="items" colWidth="50%" rowHeight="30%">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout margin="10" [nsRouterLink]="[item.link]"  borderRadius="5" verticalAlignment="stretch" class="list-group-item" [class.odd]="odd" backgroundColor="#ffffff">
+                <Image width="40%" class="m-t-8" col="0" row="0" rowSpan="2" [src]="item.imagen"></Image>
+                <Label textAlignment="center" fontSize="13" class="m-t-8" width="95%" textWrap="true" [text]="item.nombre"></Label>
+            </StackLayout>
+        </ng-template>
+    </GridView>
+
+    <!-- <StackLayout>
+        <Image  class="logo_menu marcadorCentral" src="~/images/logo_menu-min.png"></Image>
+        <GridLayout columns="auto,auto" rows="auto,auto,auto" verticalAlignment="top">
+            <Label (tap)="onNavItemTap('/nosotros')" width="47%" col="0" row="0" borderRadius="5" class="icon_menu" text="Nosotros"></Label>
+            <Label (tap)="onNavItemTap('/cargoHandbook')" width="47%" col="1" row="0" borderRadius="5" class="icon_menu1" text="Cargo Handbook"></Label>
+            <Label (tap)="onNavItemTap('/clausulados')" width="47%" col="0" row="1" borderRadius="5" class="icon_menu2" text="Clausulados"></Label>
+            <Label (tap)="onNavItemTap('/directorio')" width="47%" col="1" row="1" borderRadius="5" class="icon_menu3" text="Directorio de afiliados"></Label>
+            <Label (tap)="onNavItemTap('/presentacionesCongreso')" width="47%" col="0" row="2" borderRadius="5" class="icon_menu4" text="Presentaciones congreso"></Label>
+            <Label (tap)="onNavItemTap('/contactos')" width="47%" col="1" row="2" borderRadius="5" class="icon_menu5" text="Contacto"></Label>
+        </GridLayout>        
+    </StackLayout> -->
+
+</GridLayout>

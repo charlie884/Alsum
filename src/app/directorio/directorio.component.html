@@ -1,0 +1,28 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem> -->
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+    <ActionItem icon="res://ico_home" (tap)="onNavItemTap('/home')" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="page page-content">
+    <GridLayout row="0" width="100%" class="directorio_head"> 
+        <Label text="Directorio" color="#ffffff" class="text-center h2 bold" verticalAlignment="center"></Label>
+    </GridLayout> 
+    <TabView row="1" androidSelectedTabHighlightColor="#ff480e">
+        <ng-template ngFor let-tab="$implicit" [ngForOf]="tabs">
+            <GridLayout backgroundColor="#f7f8fc" rows="*" *tabItem="{title: tab.name}" class="details" (loaded)="cargada(tab.term_id)">
+                <GridView row="1" class="m-t-20" [items]="subcategorias" colWidth="50%" rowHeight="140">
+                    <ng-template let-subcategoria="item" let-i="index" let-odd="odd" let-even="even">
+                        <StackLayout margin="10" [nsRouterLink]="['/detalleDirectorio/'+subcategoria.ID]"  borderRadius="5" verticalAlignment="stretch" class="list-group-item" [class.odd]="odd" backgroundColor="#ffffff">
+                            <Image width="50" borderRadius="100" class="m-t-8" col="0" row="0" rowSpan="2" [src]="subcategoria.detalleInfo.imagen"></Image>
+                            <Label textAlignment="center" class="m-t-8" width="95%" textWrap="true" [text]="(subcategoria.post_title).replace(':es',':').replace(':en',':').split('[:]')[1]"></Label>
+                        </StackLayout>
+                    </ng-template>
+                </GridView>
+            </GridLayout>        
+        </ng-template>
+    </TabView>
+</GridLayout> 

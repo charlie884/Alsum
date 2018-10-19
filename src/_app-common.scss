@@ -1,0 +1,265 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+.charlie{
+    font-size:20;
+}
+// This is where the vast majority of your CSS code goes.
+// Font icon class
+.fa {
+    font-family: "FontAwesome";
+}
+// Common page class
+.page-content {
+    .page-placeholder {
+        color: $page-icon-color;
+        font-size: $page-content-placeholder-font-size;
+        vertical-align: center;
+        horizontal-align: center;
+    }
+
+    .page-icon {
+        font-size: 72;
+        vertical-align: top;
+        horizontal-align: center;
+        color: $page-icon-color;
+        margin-top: 20%;
+    }
+}
+
+//Action bar
+ActionBar .action-bar-title {
+    horizontal-align: center;
+    color:#007885;
+}
+
+ // Drawer navigation custom styles
+$sidedrawer-header-image-size: 60;
+$sidedrawer-header-image-offset-top: 20;
+$sidedrawer-header-image-offset-bottom: 5;
+$sidedrawer-list-item-offset-left: 15;
+$sidedrawer-list-icon-offset: 10;
+$sidedrawer-list-icon-size: 20;
+
+.sidedrawer {
+    &.sidedrawer-left {
+        background-color: $ab-background;
+
+        .sidedrawer-header-image {
+            color: $background-dark;
+            height: $sidedrawer-header-image-size;
+            width: $sidedrawer-header-image-size;
+            font-size: $sidedrawer-header-image-size;
+            padding: 0;
+            margin-bottom: $sidedrawer-header-image-offset-bottom;
+            margin-top: $sidedrawer-header-image-offset-top;
+        }
+
+        .footnote {
+            color: rgba($ab-color, 0.5);
+        }
+    }
+
+    .sidedrawer-header {
+        background-color: $ab-background;
+
+        .sidedrawer-header-brand {
+            color: $ab-color;
+        }
+    }
+
+    .sidedrawer-content {
+        background-color: $side-drawer-background;
+
+        $sidedrawer-list-item-offset-left: 15;
+        $sidedrawer-list-icon-offset: 10;
+        $sidedrawer-list-icon-size: 20;
+
+        .sidedrawer-list-item {
+            padding-left: $sidedrawer-list-item-offset-left;
+            Label {
+                vertical-align: center;
+                color: $blue-dark;
+            }
+            .fa {
+                width: $sidedrawer-list-icon-size;
+                margin-right: $sidedrawer-list-icon-offset;
+            }
+            &.selected {
+                background-color: $item-active-background;
+                Label {
+                    color: $item-active-color;
+                }
+            }
+        }
+    }
+}
+.bg_home{
+    background-image: url("~/images/bg_menu-min.png");
+    background-repeat: no-repeat;
+    background-size:100% 30%;
+    background-color:#f7f8fc;
+}
+.logo_menu{
+    width:140;
+    margin-top:30;
+}
+.logo_head{
+    width: 30;
+    height: 30;
+    vertical-align: center;
+}
+.marcadorCentral{
+    horizontal-align: center;
+    vertical-align: center;
+}
+.nosotros_head{
+    background-image: url("~/images/bg_nosotros_direcotrio-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:100;
+    font-weight:bold; 
+}
+.handbook_head{
+    background-image: url("~/images/bg_handbook.png");
+    background-repeat: no-repeat;
+    background-size:cover;   
+    background-position:center;  
+    height:100;
+    font-weight:bold; 
+}
+.clausulados_head{
+    background-image: url("~/images/bg_congreso_clausulados-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:100;
+    font-weight:bold; 
+}
+.presentaciones_head{
+    background-image: url("~/images/bg_congreso_clausulados-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:100;
+    vertical-align:center;
+    font-weight:bold;  
+}
+.directorio_head{
+    background-image: url("~/images/bg_nosotros_direcotrio-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:100;
+    font-weight:bold;     
+}
+.contactos_head{
+    background-image: url("~/images/bg_contacto-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:100;
+    vertical-align:center;
+    font-weight:bold; 
+}
+.recuperar_head{
+    background-image: url("~/images/bg_recuperar-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:150;
+    vertical-align:center;
+    font-weight:bold;     
+}
+.logo_recuperar{
+    margin-top:-10;
+}
+.bg_login{
+    background-image: url("~/images/bg_home-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+
+}
+.bg_registro{
+    background-image: url("~/images/bg_home-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+
+}
+.head_interna{
+    margin-top:-50;
+}
+.head_interna_emrpesa{
+    margin-top:-15;    
+}
+.ico_menu{width:40;}
+.ico_home{width:20;text-align:right;}
+.input-log{
+    padding-top:10; 
+    padding-bottom:10; 
+    padding-left:5;
+    border-radius:2;
+    placeholder-color: #ffffff;
+    color: black;
+    height:40;
+    background-color: rgba(208,228,245,0.65);
+    font-size: 13;
+}
+.input-reg{
+    padding-top:10; 
+    padding-bottom:10; 
+    padding-left:5;
+    border-radius:2;
+    placeholder-color: #9ca4ab;
+    color: black;
+    height:40;
+    background-color: #f5eff0;
+    font-size: 13;
+}
+.input-selc{
+    border-radius:2;
+    color: #9ca4ab;
+    background-color: #f5eff0;
+    font-size: 13;
+}
+.input-app{
+    border-bottom-color:#fafafa;
+    border-top-color:#fafafa;
+    border-left-color:#fafafa;
+    border-right-color:#fafafa;
+    border-width:1;
+    placeholder-color: #fafafa;
+    padding-top:10; 
+    padding-bottom:10; 
+    padding-left:5;
+    border-radius:2;
+    color: black;
+    height:40;
+    background-color:#fafafa;
+    background-image: url("~/images/icon_search.png");
+    background-repeat: no-repeat;
+    background-position: right; 
+}
+.boring {
+  border-color: white;
+  border-width: 3;
+  padding:10; 
+}
+.boring_hb {
+  border-color: #f7f8fc;
+  border-width: 4;
+  padding:10; 
+}
+.boring_ch {
+  border-color: #f7f8fc;
+  border-width: 0,0,4,0;
+  padding:10; 
+}
+.text_ch{
+  padding:10;     
+}
+.bg_color{
+    background-color:#f7f8fc;
+}
+.text-center{
+    text-align: center;
+}

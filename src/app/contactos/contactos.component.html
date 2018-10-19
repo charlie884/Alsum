@@ -1,0 +1,26 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem> -->
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+    <ActionItem icon="res://ico_home" (tap)="onNavItemTap('/home')" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" width="100%" class="contactos_head"> 
+        <Label text="Contáctanos" color="#ffffff" verticalAlignment="center" class="text-center h2"></Label> 
+    </GridLayout>
+
+    <ListView width="85%" class="m-t-15" row="1" [items]="contactos" class="list-group">
+        <ng-template  class="m-t-15" backgroundColor="white" let-contacto="item" let-i="index" let-odd="odd" let-even="even">
+            <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+            <GridLayout backgroundColor="white" class="boring_hb m-t-10 p-15" columns="auto,*" rows="auto,auto" [nsRouterLink]="['/contacto/'+contacto.ID]">
+                <Image width="50" borderRadius="100" col="0" row="0" rowSpan="2" [src]="contacto.detalleInfo.imagen"></Image>
+                <Label class="font-weight-bold p-l-15" col="1" row="0" [text]="(contacto.post_title).replace(':es',':').replace(':en',':').split('[:]')[1]"></Label>
+                <Label col="1" row="1" class="p-l-15" [text]="(contacto.detalleInfo.desc3).replace(':es',':').replace(':en',':').split('[:]')[1]"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView> 
+
+</GridLayout> 

@@ -1,0 +1,21 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Volver" android.systemIcon="ic_menu_back" (tap)="irAtras()"></NavigationButton>     
+    <Label class="action-bar-title" text="Recuperar contraseña"></Label>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" width="100%" class="recuperar_head"> 
+        <Image  class="logo_recuperar" width="45%" src="~/images/logo_menu-min.png"></Image>    	
+    </GridLayout>
+
+    <StackLayout row="1" class="head_interna" borderRadius="10" width="85%" backgroundColor="white" padding="10">
+            
+        <label class="m-t-10 m-b-15 m-l-15" textAlignment="center" fontWeight="bold"  text="¡No te preocupes!" color="#1188a6"></label>
+        <label class="m-t-10 m-b-15 m-l-15" textAlignment="center" textWrap="true"  text="Ingresa el correo de registro, pronto recibiras un mensaje con el enlace para restablecer tu contraseña." color="#9ca4ab"></label>
+        <label class="m-t-10 m-b-15 m-l-15" textAlignment="center"  text="Corero electrónico" color="#9ca4ab"></label>
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15 input-reg" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalization="none" [(ngModel)]="email"></TextField>
+
+        <Button class="btn btn-primary" backgroundColor="#1188a6" borderRadius="5" text="Recuperar contraseña" (tap)="onSignupButtonTap()"></Button>
+
+    </StackLayout> 
+</GridLayout> 

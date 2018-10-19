@@ -1,0 +1,27 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Volver" android.systemIcon="ic_menu_back" (tap)="irAtras()"></NavigationButton> 
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" width="100%" class="handbook_head"> 
+    </GridLayout>
+
+    <StackLayout row="1" class="head_interna" borderRadius="10" width="85%" backgroundColor="white" padding="10">
+        <Image [src]="img"  width="100%" height="30%" borderRadius="5" verticalAlignment="center"></Image>
+	    <Accordion class="m-t-15" row="1" [items]="detalles" itemTapped="tapped" width="85%" headerTextBold="true" headerTextColor="white" headerColor="pink" headerTextColor="blue"allowMultiple="true"  selectedIndex="0">
+
+	        <ng-template class="m-t-15" accordionHeaderTemplate let-item="item" let-i="index">
+	            <GridLayout class="boring_ch" backgroundColor="white" columns="auto,*">
+	                <Label [text]="item.title"></Label>
+	            </GridLayout>
+	        </ng-template>
+
+	        <ng-template accordionItemTemplate let-item="item" let-parent="parentIndex" let-even="even" let-child="childIndex">
+	            <StackLayout class="text_ch">
+	                <HtmlView [html]="item.texto"></HtmlView >
+	            </StackLayout>
+	        </ng-template>
+	    </Accordion>
+    </StackLayout> 
+</GridLayout>

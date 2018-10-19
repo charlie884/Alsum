@@ -1,0 +1,67 @@
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+-->
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <!-- <StackLayout row="0" class="sidedrawer-header">
+            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <Label class="sidedrawer-header-brand" text="User Name"></Label>
+            <Label class="footnote" text="username@mail.com"></Label>
+        </StackLayout> -->
+    
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item m-b-20 m-t-20" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
+                    <Image col="0" class="ico_menu" src="~/images/menu.png"></Image>
+                    <Label col="1" text="MENU" class="p-l-20"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/nosotros')" (tap)="onNavItemTap('/nosotros')">
+                    <Image col="0" class="ico_menu" src="~/images/nosotros-min.png"></Image>
+                    <Label col="1" text="Nosotros" class="p-l-20"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/cargoHandbook')" (tap)="onNavItemTap('/cargoHandbook')">
+                    <Image col="0" class="ico_menu" src="~/images/cargo_handbook-min.png"></Image>
+                    <Label col="1" text="Cargo Handbook" class="p-l-20"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/clausulados')" (tap)="onNavItemTap('/clausulados')">
+                    <Image col="0" class="ico_menu" src="~/images/clausulados-min.png"></Image>
+                    <Label col="1" text="Clausulados" class="p-l-20"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/directorio')" (tap)="onNavItemTap('/directorio')">
+                    <Image col="0" class="ico_menu" src="~/images/directorio_afiliados-min.png"></Image>
+                    <Label col="1" text="Directorio de afiliados" class="p-l-20"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/presentacionesCongreso')" (tap)="onNavItemTap('/presentacionesCongreso')">
+                    <Image col="0" class="ico_menu" src="~/images/presentaciones_congreo-min.png"></Image>
+                    <Label col="1" text="Presentaciones congreso" class="p-l-20"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/contactos')" (tap)="onNavItemTap('/contactos')">
+                    <Image col="0" class="ico_menu" src="~/images/contacto-min.png"></Image>
+                    <Label col="1" text="Contacto" class="p-l-20"></Label>
+                </GridLayout>
+
+                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
+                    <Label col="0" text="&#xf002;" class="fa"></Label>
+                    <Label col="1" text="Search" class="p-r-10"></Label>
+                </GridLayout> -->
+    
+                <!-- <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
+                    <Label col="0" text="&#xf013;" class="fa"></Label>
+                    <Label col="1" text="Settings" class="p-r-10"></Label>
+                </GridLayout> -->
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>

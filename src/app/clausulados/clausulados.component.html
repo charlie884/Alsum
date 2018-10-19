@@ -1,0 +1,23 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem> -->
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+    <ActionItem icon="res://ico_home" (tap)="onNavItemTap('/home')" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" rows="auto" width="100%" class="clausulados_head"> 
+        <TextField row="0" class="m-t-30 m-b-10 m-l-15 m-r-15 input-app" autocorrect="false" hint="Buscar" text="" returnKeyType="search"></TextField>
+    </GridLayout>
+
+    <ListView width="85%" class="m-t-15" row="1" [items]="clausulados" class="list-group">
+        <ng-template class="m-t-15" backgroundColor="white" let-clausulado="item" let-i="index" let-odd="odd" let-even="even">
+            <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+            <StackLayout backgroundColor="white" class="boring_hb m-t-10" [nsRouterLink]="['/clausulado/'+clausulado.ID]">
+                <Label [text]="(clausulado.post_title).replace(':es',':').split('[:]')[1]"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView> 
+</GridLayout> 

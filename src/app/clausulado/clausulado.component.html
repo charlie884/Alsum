@@ -1,0 +1,21 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Volver" android.systemIcon="ic_menu_back" (tap)="irAtras()"></NavigationButton> 
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" width="100%" class="clausulados_head"> 
+    </GridLayout>
+
+    <StackLayout row="1" class="head_interna" borderRadius="10" width="85%" backgroundColor="white" padding="10">
+        <!--Add your page content here-->
+        <GridLayout class="page p-t-15"  rows="auto,auto,auto" width="100%">
+            <StackLayout row="0"  width="100%">
+                <Label class="font-wight-bold" width="85%" text="Sinopsis"></Label>
+            </StackLayout>
+            <GridLayout rows="auto,auto" row="1">
+                <Label textWrap="true" width="85%" row="2" class="m-t-15" [text]="(clausulado.post_content).replace(':es',':').replace(':en',':').split('[:]')[1]"></Label>
+            </GridLayout>
+        </GridLayout>
+    </StackLayout> 
+</GridLayout>

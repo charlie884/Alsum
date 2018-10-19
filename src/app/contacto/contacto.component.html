@@ -1,0 +1,23 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Volver" android.systemIcon="ic_menu_back" (tap)="irAtras()"></NavigationButton> 
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" width="100%" class="contactos_head"> 
+    </GridLayout>
+
+    <StackLayout row="1" class="head_interna" borderRadius="10" width="85%" backgroundColor="white" padding="10">
+        <!--Add your page content here-->
+        <GridLayout class="page p-t-15"  rows="auto,auto,auto" width="100%">
+            <StackLayout row="0"  width="100%">
+                <Image [src]="contacto.detalleInfo.imagen"  width="150" borderRadius="100" verticalAlignment="center"></Image>
+            </StackLayout> 
+            <GridLayout rows="auto,auto,auto" row="1">
+                <Label width="85%" row="0" class="m-t-15 font-weight-bold" textAlignment="center" [text]="(contacto.post_title).replace(':es',':').replace(':en',':').split('[:]')[1]"></Label>
+                <Label class="m-t-15" textAlignment="center" width="85%" row="1" [text]="(contacto.detalleInfo.desc3).replace(':es',':').replace(':en',':').split('[:]')[1]"></Label>
+                <HtmlView class="m-t-15 m-l-30" textAlignment="center" width="85%" row="2" [html]="(contacto.post_content).replace(':es',':').replace(':en',':').split('[:]')[1]"></HtmlView >
+            </GridLayout>
+        </GridLayout>
+    </StackLayout> 
+</GridLayout>

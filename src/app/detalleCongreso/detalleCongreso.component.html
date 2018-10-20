@@ -1,0 +1,35 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Volver" android.systemIcon="ic_menu_back" (tap)="irAtras()"></NavigationButton> 
+    <Image class="logo_head" width="20%" src="~/images/logo_head-min.png"></Image>
+</ActionBar>
+
+<GridLayout width="100%" rows="auto,*" class="bg_color page page-content">
+    <GridLayout row="0" width="100%" class="congreso_head"> 
+    	<Label [text]="charla.nombre" color="#ffffff" verticalAlignment="center" class="text-center" textWrap="true"></Label>
+    </GridLayout>
+
+    <StackLayout row="1" class="head_interna" borderRadius="10" width="95%" backgroundColor="white" padding="4">
+    	<ScrollView>
+
+	        <GridLayout rows="auto,auto,auto,auto,*" row="1">
+
+	            <Label width="95%" row="0" class="m-t-15 font-weight-bold" text="Sinopsis"></Label>
+	            <Label width="95%" row="1" class="m-t-15" [text]="charla.resumen" textWrap="true"></Label>
+
+	        	<Button row="2" class="btn btn-primary" backgroundColor="#ff481b" borderColor="#ff481b" borderWidth="1" borderRadius="5" text="Descarga presentación"></Button>
+	        	<Button row="3" class="btn btn-primary" backgroundColor="#ff481b" borderColor="#ff481b" borderWidth="1" borderRadius="5" text="Download Presentation"></Button>
+
+	            <ListView width="95%" row="4" [items]="charla.conferencistas" class="m-t-15">
+	                <ng-template class="m-t-15" backgroundColor="white" let-item="item" let-i="index" let-odd="odd" let-even="even">
+	                    <StackLayout backgroundColor="white" class="boring_hb m-t-10">
+	                        <Label [text]="item.nombre" textWrap="true"></Label>
+	                        <Label [text]="item.empresa" textWrap="true"></Label>
+	                        <Label [text]="item.resumen" textWrap="true"></Label>
+	                    </StackLayout>
+	                </ng-template>
+	            </ListView> 		
+
+	        </GridLayout>
+        </ScrollView>
+    </StackLayout> 
+</GridLayout>

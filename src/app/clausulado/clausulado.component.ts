@@ -4,6 +4,7 @@ import { ScrollView, ScrollEventData } from 'tns-core-modules/ui/scroll-view';
 import { View } from 'tns-core-modules/ui/core/view';
 import * as ApplicationSettings from "application-settings";
 import { ActivatedRoute } from "@angular/router";
+import {Servicio} from '../servicio.service';
 
 @Component({
     selector: "Clausulado",
@@ -11,28 +12,29 @@ import { ActivatedRoute } from "@angular/router";
     templateUrl: "./clausulado.component.html"
 })
 export class ClausuladoComponent implements OnInit {
-    clausulados:any;
     id:string;
     clausulado:any;
 
-    constructor(private routerExtensions: RouterExtensions,private route: ActivatedRoute) {
-        console.log(ApplicationSettings.getString('clausulados'));
-        this.clausulados=JSON.parse(ApplicationSettings.getString('clausulados'));
-        this.route.params.forEach((params) => { 
+    constructor(private ws:Servicio,private routerExtensions: RouterExtensions,private route: ActivatedRoute) {
+        let model = this;
+        model.route.params.forEach((params) => { 
             console.log('Parametros de url');
-            this.id = params["ID"];
+            model.id = params["ID"];
         });
-        console.log('Contacto a buscar: '+this.id);
+        console.log('Detalle a buscar: '+model.id);
     }
 
     ngOnInit(): void {
-      this.clausulados.forEach((clausulado)=>{
-          console.log('clausulado');
-          console.log(clausulado);
-          if(clausulado.ID==this.id){
-              this.clausulado=clausulado;
-          }
-      });
+        let model = this;
+        model.ws.detalleClausulado(model.id).subscribe((res)=>{
+
+          console.log(res);
+          console.log(res[0].post_content);
+          this.clausulado = res[0].post_content.replace(':es',':').replace(':en',':').split('[:]')[1];
+
+        }, (error) => {
+            console.log(error);
+        });
     }
 
     irAtras(): void {

@@ -43,14 +43,15 @@ export class DirectorioComponent implements OnInit {
            
             model.tabs=[];
             for (let i = 0; i < Object.keys(res).length; i++) {
-                if (res[i].name == 'Miembros') {
-                    model.categorias.push(res[i]);
-                    model.tabs.push(res[i]);
-                }
-                if (res[i].name == 'Asociados') {
-                    model.categorias.push(res[i]);
-                    model.tabs.push(res[i]);
-                }
+                model.tabs.push(res[i]);
+                // if (res[i].name == 'Miembros') {
+                //     model.categorias.push(res[i]);
+                //     model.tabs.push(res[i]);
+                // }
+                // if (res[i].name == 'Asociados') {
+                //     model.categorias.push(res[i]);
+                //     model.tabs.push(res[i]);
+                // }
             }
         }, (error) => {
             console.log(error);

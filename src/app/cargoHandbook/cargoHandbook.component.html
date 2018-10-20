@@ -16,7 +16,6 @@
             <StackLayout *tabItem="{title: tab.name}" class="details" (loaded)="cargada(tab.term_id)">
                 <ListView width="85%" row="1" [items]="subcategorias" class="m-t-15">
                     <ng-template class="m-t-15" backgroundColor="white" let-subcategoria="item" let-i="index" let-odd="odd" let-even="even">
-                        <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
                         <StackLayout backgroundColor="white" class="boring_hb m-t-10" [nsRouterLink]="['/detalleHandbook/'+subcategoria.ID]">
                             <Label [text]="(subcategoria.post_title).replace(':es',':').split('[:]')[1]"></Label>
                         </StackLayout>

@@ -1,8 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
+import { View } from "tns-core-modules/ui/core/view";
 import * as app from "tns-core-modules/application";
+import {Servicio} from '../servicio.service';
+import * as observableArray from "tns-core-modules/data/observable-array";
+import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view";
+import {LoadingIndicator} from "nativescript-loading-indicator";
 import { RouterExtensions } from "nativescript-angular/router";
+import * as ApplicationSettings from "application-settings";
+
+let loader = new LoadingIndicator();
 
 @Component({
     selector: "PresentacionesCongreso",
@@ -10,17 +17,53 @@ import { RouterExtensions } from "nativescript-angular/router";
     templateUrl: "./presentacionesCongreso.component.html"
 })
 export class PresentacionesCongresoComponent implements OnInit {
-    public myItems: Array<SegmentedBarItem>;
-    public prop: string = "Item 1";
+    public dias = new observableArray.ObservableArray([]);
+    public charlas = new observableArray.ObservableArray([]);
 
-    constructor(private routerExtensions: RouterExtensions) {
-        this.myItems = [];
-        for (let i = 1; i < 6; i++) {
-            const item = new SegmentedBarItem();
-            item.title = "Tab " + i;
-            this.myItems.push(item);
-        }
+    public tabs:Array<any>;
+
+
+    constructor(private ws:Servicio,private routerExtensions: RouterExtensions) {
+
     }
+
+    ngOnInit(): void {
+        
+        let model = this;
+
+        model.ws.dias().subscribe((res) => {            
+            console.log('Respuesta de los dias ');
+            console.log(res);
+            model.tabs=[];
+            for (let i = 0; i < Object.keys(res).length; i++) {
+                model.dias.push(res[i]);
+                model.tabs.push(res[i]);
+            }
+        }, (error) => {
+            console.log(error);
+        });
+    }
+    cargada(id){
+        console.log('Cargada: '+id);
+        loader.show({
+            message:"Cargando charlas"
+        });
+        let model = this;
+        model.ws.charlas(id).subscribe((res) => {
+            ApplicationSettings.setString('charlas',JSON.stringify(res));
+            loader.hide();
+            console.log('Respuesta de la charla ');
+            console.log(res);
+            model.charlas= new observableArray.ObservableArray([]);
+            for (let i = 0; i < Object.keys(res).length; i++) {
+                model.charlas.push(res[i]);
+            }
+        }, (error) => {
+            loader.hide();
+            console.log(error);
+        });
+    }    
+
 
     onNavItemTap(navItemRoute: string): void {
         this.routerExtensions.navigate([navItemRoute], {
@@ -32,18 +75,6 @@ export class PresentacionesCongresoComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
     }
-
-    public onSelectedIndexChange(args) {
-        let segmetedBar = <SegmentedBar>args.object;
-        this.prop = "Item" + (segmetedBar.selectedIndex + 1);
-    }
-
-    ngOnInit(): void {
-        /* ***********************************************************
-        * Use the "ngOnInit" handler to initialize data for this component.
-        *************************************************************/
-    }
-
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();

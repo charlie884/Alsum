@@ -161,6 +161,15 @@ $sidedrawer-list-icon-size: 20;
     vertical-align:center;
     font-weight:bold; 
 }
+.congreso_head{
+    background-image: url("~/images/bg_congreso_clausulados-min.png");
+    background-repeat: no-repeat;
+    background-size:cover;  
+    background-position:center;  
+    height:100;
+    vertical-align:center;
+    font-weight:bold; 
+}
 .recuperar_head{
     background-image: url("~/images/bg_recuperar-min.png");
     background-repeat: no-repeat;
@@ -186,7 +195,7 @@ $sidedrawer-list-icon-size: 20;
 
 }
 .head_interna{
-    margin-top:-50;
+    margin-top:-30;
 }
 .head_interna_emrpesa{
     margin-top:-15;    

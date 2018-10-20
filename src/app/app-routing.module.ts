@@ -18,6 +18,8 @@ const routes: Routes = [
     { path: "clausulado/:ID", loadChildren: "~/app/clausulado/clausulado.module#ClausuladoModule" },
     { path: "detalleDirectorio", loadChildren: "~/app/detalleDirectorio/detalleDirectorio.module#DetalleDirectorioModule" },
     { path: "detalleDirectorio/:ID", loadChildren: "~/app/detalleDirectorio/detalleDirectorio.module#DetalleDirectorioModule" },
+    { path: "detalleCongreso", loadChildren: "~/app/detalleCongreso/detalleCongreso.module#DetalleCongresoModule" },
+    { path: "detalleCongreso/:id", loadChildren: "~/app/detalleCongreso/detalleCongreso.module#DetalleCongresoModule" },
     { path: "directorio", loadChildren: "~/app/directorio/directorio.module#DirectorioModule" },
     { path: "presentacionesCongreso", loadChildren: "~/app/presentacionesCongreso/presentacionesCongreso.module#PresentacionesCongresoModule" },
     { path: "contactos", loadChildren: "~/app/contactos/contactos.module#ContactosModule" },

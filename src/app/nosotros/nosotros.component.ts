@@ -15,23 +15,32 @@ export class NosotrosComponent implements OnInit {
     constructor(private ws:Servicio,private routerExtensions: RouterExtensions) {
         let model = this;
       model.ws.obtenerNosotros().subscribe((res:any)=>{
-            console.log(res);
-            console.log();    
+            console.log(res);  
 
             model.nosotros = [{
-                title:res.alsum[0].post_title,
+                title:res.alsum[0].post_title.replace(':es',':').replace(':en',':').split('[:]')[1],
                 items: [
-                    { texto: 'textososo'}
+                    { 
+                        imagen:res.alsum[0].imagen[0].guid,
+                        texto: res.alsum[0].post_content.replace(':es',':').replace(':en',':').split('[:]')[1]
+
+                    }
                 ]
             },{
                 title:'Líneas de acción',
                 items: [
-                    { texto: 'textososo'}
+                    { 
+                        imagen:res.lineas[0].imagen[0].guid,
+                        texto: res.lineas[0].post_content.replace(':es',':').replace(':en',':').split('[:]')[1]
+                    }
                 ]
             },{
-                title:'Fundadores',
+                title:res.fundadores[0].post_title.replace(':es',':').replace(':en',':').split('[:]')[1],
                 items: [
-                    { texto: 'textososo'}
+                    { 
+                        imagen:res.fundadores[0].imagen[0].guid,
+                        texto:res.fundadores[0].post_content.replace(':es',':').replace(':en',':').split('[:]')[1]
+                    }
                 ]
             }];
             console.log(model.nosotros); 

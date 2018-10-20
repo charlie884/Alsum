@@ -11,8 +11,18 @@
     <GridLayout row="0" width="100%" class="presentaciones_head"> 
         <Label text="Presentaciones congreso" color="#ffffff" verticalAlignment="center" class="text-center"></Label>
     </GridLayout>
-    <GridLayout row="1" rows="auto,auto" width="100%" class=""> 
-        <SegmentedBar row="0" [items]="myItems" selectedIndex="0" (selectedIndexChange)="onSelectedIndexChange($event)" class="m-5"></SegmentedBar>
-        <Label row="1" [text]="prop" textWrap="true" verticalAlign="center" class="h2 text-center"></Label>
-    </GridLayout>
+    <TabView row="1" androidSelectedTabHighlightColor="#ff480e">
+        <ng-template ngFor let-tab="$implicit" [ngForOf]="tabs">
+            <StackLayout *tabItem='{title: (tab.dia| date: "EEEE, d MMMM" | titlecase)}' class="details" (loaded)="cargada(tab.id)">
+                <ListView width="85%" row="1" [items]="charlas" class="m-t-15">
+                    <ng-template class="m-t-15" backgroundColor="white" let-charla="item" let-i="index" let-odd="odd" let-even="even">
+                        <StackLayout backgroundColor="white" class="boring_hb m-t-10" [nsRouterLink]="['/detalleCongreso/'+charla.id]">
+                            <Label [text]="charla.nombre" textWrap="true"></Label>
+                            <Label [text]="charla.hora" textWrap="true"></Label>
+                        </StackLayout>
+                    </ng-template>
+                </ListView> 
+            </StackLayout>         
+        </ng-template>
+    </TabView>
 </GridLayout> 

@@ -14,16 +14,17 @@
 
     <Accordion class="m-t-15" row="1" [items]="nosotros" itemTapped="tapped" width="85%" headerTextBold="true" headerTextColor="white" headerColor="pink" headerTextColor="blue"allowMultiple="true"  selectedIndex="0">
 
-        <ng-template accordionHeaderTemplate let-item="item" let-i="index">
-            <GridLayout class="boring" backgroundColor="white" columns="auto,*">
-                <Label text="dfsddfd"></Label>
+        <ng-template class="m-t-15" accordionHeaderTemplate let-item="item" let-i="index">
+            <GridLayout class="boring_ch" backgroundColor="white" columns="auto,*">
+                <Label [text]="item.title"></Label>
             </GridLayout>
         </ng-template>
 
         <ng-template accordionItemTemplate let-item="item" let-parent="parentIndex" let-even="even" let-child="childIndex">
-            <StackLayout>
-                <Label text="item"></Label>
-            </StackLayout>
+            <GridLayout rows="auto,*" class="text_ch">
+                <Image row="0" [src]="item.imagen"></Image>
+                <HtmlView row="1" [html]="item.texto"></HtmlView>
+            </GridLayout>
         </ng-template>
     </Accordion>
 </GridLayout> 

@@ -23,21 +23,8 @@ export class CargoHandbookComponent implements OnInit {
         let model = this;
         
     }
-
-    onNavItemTap(navItemRoute: string): void {
-        this.routerExtensions.navigate([navItemRoute], {
-            transition: {
-                name: "fade"
-            }
-        });
-
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.closeDrawer();
-    }
     ngOnInit(): void { 
-        /* ***********************************************************
-        * Use the "ngOnInit" handler to initialize data for this component.
-        *************************************************************/
+        
         let model = this;
 
         model.ws.obtenerCategoriasHandbook().subscribe((res) => {
@@ -70,6 +57,17 @@ export class CargoHandbookComponent implements OnInit {
             loader.hide();
             console.log(error);
         });
+    }
+
+    onNavItemTap(navItemRoute: string): void {
+        this.routerExtensions.navigate([navItemRoute], {
+            transition: {
+                name: "fade"
+            }
+        });
+
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.closeDrawer();
     }
 
     onDrawerButtonTap(): void {

@@ -5,6 +5,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { Servicio } from './servicio.service';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/es';
+registerLocaleData(localeFr, 'es-CO');
 
 @NgModule({
     bootstrap: [
@@ -23,7 +27,8 @@ import { Servicio } from './servicio.service';
         NO_ERRORS_SCHEMA
     ],
     providers:[
-        Servicio
+        Servicio,
+        { provide: LOCALE_ID, useValue: "es-CO" }
     ]
 })
 export class AppModule { }
